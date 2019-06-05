@@ -11,7 +11,7 @@ class Router
 
         if (!strcmp($explode_url[0], ""))
         {
-            $request->controller = "Index";
+            $request->controller = "Home";
             $request->action = "index";
             $request->params = [];
         }

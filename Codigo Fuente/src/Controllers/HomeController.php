@@ -1,9 +1,9 @@
 <?php
-class IndexController extends Controller
+class HomeController extends Controller
 {
     function index()
     {
-        $d["title"] = "Index";
+        $d["title"] = Constantes::INDEXTITLE;
         $this->set($d);
         $this->render(Constantes::INDEXVIEW);
     }
