@@ -122,9 +122,9 @@ function validarFechaNacimiento() {
 
     var validacion = false;
 
-    if (!moment(fechaNacimiento, "DD/MM/YYYY").isValid()) {
+    if (!moment(fechaNacimiento, "YYYY-MM-DD").isValid()) {
         $("#errorFechaNacimiento").fadeIn("slow");
-    } else if (Math.round(moment.duration(moment().diff(moment(fechaNacimiento, "DD/MM/YYYY"))).asYears()) < 18) {
+    } else if (Math.round(moment.duration(moment().diff(moment(fechaNacimiento, "YYYY-MM-DD"))).asYears()) < 18) {
         $("#errorFechaNacimiento2").fadeIn("slow");
     } else {
         validacion = true;
@@ -227,12 +227,14 @@ btnRegistrar.click(function () {
 });
 
 function mostrarModalRegistracionExitosa(dummy) {
+    alertify.alert("¡Registración Exitosa!", "Espere unos segundos y será redireccionado a la pantalla de inicio");
     setTimeout(function () {
         window.location.href = pathHome;
     }, 5000);
 }
 
 function mostrarModalError(err) {
+    alertify.alert("Fallo en la Registración", err);
     $("input").prop('disabled', false);
     btnRegistrar.prop('disabled', false);
 }

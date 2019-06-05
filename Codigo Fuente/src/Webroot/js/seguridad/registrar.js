@@ -3,7 +3,6 @@ var btnInputFechaNacimiento = $("#btnInputFechaNacimiento");
 var selectProvincia = $("#selectProvincia");
 var selectPartido = $("#selectPartido");
 var selectLocalidad = $("#selectLocalidad");
-var rowPartidoLocalidadSelects = $("#rowPartidoLocalidadSelects");
 
 function inicializarSelectPartido(provinciaId) {
     var obj = {};
@@ -26,7 +25,6 @@ function cargarSelectLocalidad(localidades) {
         selectLocalidad.append(option);
     });
     selectLocalidad.prop('disabled', false);
-    rowPartidoLocalidadSelects.removeClass("d-none");
     btnRegistrar.prop('disabled', false);
 }
 
@@ -63,19 +61,6 @@ btnInputFechaNacimiento.click(function () {
     inputFechaNacimiento.data("daterangepicker").toggle();
 });
 
-function showPassword(btn) {
-    var pwd = $(btn).parent().siblings(".pwd");
-    var eye = $(btn).children();
-
-    if(pwd.attr("type") === "password") {
-        pwd.attr("type", "text");
-        eye.removeClass("fa-eye").addClass("fa-eye-slash");
-    } else {
-        pwd.attr("type", "password");
-        eye.removeClass("fa-eye-slash").addClass("fa-eye");
-    }
-}
-
 //Oculta el spinner de los input number
 $(document).ready(function ($) {
 
@@ -98,3 +83,4 @@ $(document).ready(function ($) {
     });
 
 });
+

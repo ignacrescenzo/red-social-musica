@@ -1,4 +1,6 @@
 <script>
+    const pathGetPartidosByProvinciaId = "<?php echo getBaseAddress() . "Seguridad/getPartidosByProvinciaId"; ?>";
+    const pathGetLocalidadesByPartidoId = "<?php echo getBaseAddress() . "Seguridad/getLocalidadesByPartidoId"; ?>";
     const pathRegistrarUsuario = "<?php echo getBaseAddress() . "Seguridad/registrarUsuario"; ?>";
 </script>
 
@@ -70,6 +72,10 @@
                 <div class="w-50">
                     <select name="genero" id="selectGenero">
                         <option value="0" selected disabled>Seleccione su Género</option>
+                        <?php
+                        foreach ($generos as $genero)
+                            echo "<option value='" . $genero->getId() . "'>" . $genero->getNombre() . "</option>";
+                        ?>
                     </select>
                 </div>
             </div>
@@ -78,6 +84,10 @@
                 <div class="mr-3 w-50">
                     <select name="provincia" id="selectProvincia">
                         <option value="0" selected disabled>Seleccione una Provincia</option>
+                        <?php
+                        foreach ($provincias as $provincia)
+                            echo "<option value='" . $provincia->getId() . "'>" . $provincia->getNombre() . "</option>";
+                        ?>
                     </select>
                 </div>
                 <div class="w-50">

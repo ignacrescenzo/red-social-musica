@@ -1,8 +1,11 @@
+<script>
+    const pathAccionLoguear = "<?php echo getBaseAddress() . "Seguridad/loguearUsuario"; ?>";
+</script>
+
 <div class="">
     <div class="header d-flex justify-content-between p-3 align-items-center">
         <div class="d-flex invisible">
             <div class="mr-2">
-                <img src="./img/search-solid.svg" width="32px" height="32px">
             </div>
             <div style="cursor:pointer;">
                 <input type="text" placeholder="BUSCAR">
@@ -29,11 +32,13 @@
             </h1>
         </div>
         <div class="w-50 mx-auto p-1">
-            <input type="text" placeholder="Usuario" class="mb-4">
-            <input type="password" name="" id="" placeholder="Contraseña">
+            <input type="text" placeholder="Usuario" name="emailOrNick" class="mb-4" id="inputEmailOrNick">
+            <input type="password" name="password" placeholder="Contraseña" id="inputPassword">
         </div>
         <div class="w-50 mx-auto text-center mt-4">
-            <button>Iniciar sesión</button>
+            <button id="btnIngresar">Iniciar sesión</button>
         </div>
     </div>
 </div>
+
+<script src="<?php echo getBaseAddress() . "Webroot/js/seguridad/validacionLogin.js" ?>"></script>

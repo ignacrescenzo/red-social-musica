@@ -9,9 +9,14 @@ require_once ROOT . 'router.php';
 require_once ROOT . 'request.php';
 require_once ROOT . 'dispatcher.php';
 
+massiveImport('Enums');
+massiveImport('Exceptions');
 massiveImport('Helpers');
 massiveImport('Utils');
 massiveImport('Models');
+massiveImport('Dto');
+
+header("Content-Type: text/html; charset=utf-8");
 
 function massiveImport($folder)
 {
