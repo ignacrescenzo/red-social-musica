@@ -1,0 +1,56 @@
+.header {
+    height: 100px;
+    background-color: #CA0A0A;
+}
+
+.eventos {
+    border: black solid 1px;
+    height: 200px;
+}
+
+.descubre {
+    height: 100px;
+    border: black solid 1px;
+}
+
+.bloque {
+    width: 35%;
+    border: 1px solid black;
+}
+
+.header-bloque {
+    border-bottom: 1px solid black;
+}
+
+input,
+select,
+option {
+    width: 100%;
+    height: 30px;
+}
+
+a,
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.footer-bloque {
+    border-top: 1px solid black;
+}
+
+.container-login {
+    border: 1px solid black;
+    height: 300px;
+    width: 40%;
+    background-color: #CCCCCC;
+}
+
+.container-login input {
+    border: 2px solid black;
+    padding: 4px;
+}
+
+.login {
+    background-color: #E3E3E3;
+}
