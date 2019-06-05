@@ -1,0 +1,18 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Globons
+ * Date: 11/5/2019
+ * Time: 10:23
+ */
+
+abstract class Constantes
+{
+    //Vistas
+    const INDEXVIEW = "index";
+    const USUARIOVIEW = "usuario";
+
+    //Propiedades Usuario
+    const USUARIONOMBRE = "nombre";
+    const USUARIOAPELLIDO = "apellido";
+}
