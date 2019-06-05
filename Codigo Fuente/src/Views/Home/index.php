@@ -14,17 +14,25 @@
             </h1>
         </div>
         <div class="d-flex">
-            <div class="mr-3">
-                <a href="<?php echo getBaseAddress() . "Seguridad/login"; ?>">
+        <?php
+        if (isset($_SESSION["session"])) {
+            echo '<div class="text-white">' . unserialize($_SESSION["session"])->getUserName() . '</div>';
+        } else {
+            echo '<div class="mr-3">
+                <a href="' . getBaseAddress() . 'Seguridad/login' . '">
                     Login
                 </a>
             </div>
             <div class="text-white">
-                <a href="<?php echo getBaseAddress() . "Seguridad/registrar"; ?>" class="text-white">
+                <a href="' . getBaseAddress() . 'Seguridad/registrar' . '" class="text-white">
                     Registrarse
                 </a>
-            </div>
+            </div>';
+        }
+        ?>
         </div>
+
+
     </div>
     <div class="container">
         <div class="mb-4 mt-2">

@@ -2,3 +2,5 @@
 /Codigo Fuente/src/Config/config.php
 *desktop.ini*
 /Codigo Fuente/tests
+/Codigo Fuente/src/Webroot/exception-log.txt
+/Codigo Fuente/src/Webroot/sql-log.txt
