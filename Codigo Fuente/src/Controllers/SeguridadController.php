@@ -146,4 +146,9 @@ class SeguridadController extends Controller
 
         echo json_encode(true);
     }
+
+    function cerrarSesion(){
+        session_destroy();
+        header("Location:" . getBaseAddress());
+    }
 }

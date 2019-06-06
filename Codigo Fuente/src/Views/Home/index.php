@@ -1,3 +1,7 @@
+<script>
+    var pathCerrarSesion = "<?php echo getBaseAddress() . "Seguridad/cerrarSesion"; ?>";
+</script>
+
 <div class="">
     <div class="header d-flex justify-content-between p-3 align-items-center">
         <div class="d-flex">
@@ -76,7 +80,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        <button type="button" class="btn btn-danger">Si</button>
+        <button type="button" id="btnCerrarSesion" class="btn btn-danger">Si</button>
       </div>
     </div>
   </div>
