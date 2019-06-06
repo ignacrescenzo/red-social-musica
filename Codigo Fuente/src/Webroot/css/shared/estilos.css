@@ -3,6 +3,10 @@
     background-color: #CA0A0A;
 }
 
+.dropdown-item:focus {
+    background-color: #CA0A0A;
+}
+
 .eventos {
     border: black solid 1px;
     height: 200px;
