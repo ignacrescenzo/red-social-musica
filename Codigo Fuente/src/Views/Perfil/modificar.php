@@ -27,7 +27,7 @@
                 </a>
             </div>
             <div class="text-white">
-                <a href="' . getBaseAddress() . 'Seguridad/registrar' . '" class="text-white">
+                <a href="' . getBaseAddress() . 'Seguridad/cerrarSesion' . '" class="text-white">
                     Cerrar Sesión
                 </a>
             </div>';
@@ -59,20 +59,20 @@
                             <div class="form-group row w-100 justify-content-start align-items-center">
                                 <label for="inputNombre" class="col-sm-5 col-form-label">Nombre:</label>
                                 <div class="col-sm-7">
-                                    <input type="text" name="nombre" id="inputNombre" placeholder="Ingrese su Nombre">
+                                    <input type="text" value = '<?php echo $buscado["Nombre"] ?>' name="nombre" id="inputNombre" placeholder="Ingrese su Nombre">
                                 </div>
                             </div>
                             <div class="form-group row w-100 justify-content-start align-items-center">
                                 <label for="inputApellido" class="col-sm-5 col-form-label">Apellido:</label>
                                 <div class="col-sm-7">
-                                    <input type="text" name="apellido" id="inputApellido"
+                                    <input type="text" name="apellido" value = '<?php echo $buscado["Apellido"] ?>' id="inputApellido"
                                            placeholder="Ingrese su Apellido">
                                 </div>
                             </div>
                             <div class="form-group row w-100 justify-content-start align-items-center">
                                 <label for="inputEmail" class="col-sm-5 col-form-label">Email:</label>
                                 <div class="col-sm-7">
-                                    <input type="email" name="email" id="inputEmail" placeholder="Ingrese su Email">
+                                    <input type="email" value = '<?php echo $buscado["Email"] ?>' name="email" id="inputEmail" placeholder="Ingrese su Email">
                                 </div>
                             </div>
                             <div class="form-group row w-100 justify-content-start align-items-center">
@@ -92,7 +92,7 @@
                                     Nacimiento:</label>
                                 <div class="col-sm-7">
                                     <div class="d-flex">
-                                        <input type="text" onfocus="(this.type='date')" name="fechaDeNacimiento"
+                                        <input type="text" value = '<?php echo $buscado["FechaNacimiento"] ?>' onfocus="(this.type='date')" name="fechaDeNacimiento"
                                                id="inputFechaDeNacimiento" placeholder="Fecha de Nacimiento">
                                         <div class="d-flex justify-content-center align-items-center ml-2">
                                             <i class="fa fa-calendar-alt"></i>
@@ -133,7 +133,7 @@
                             <div class="form-group row w-100 justify-content-start align-items-center">
                                 <label for="inputPassword" class="col-sm-5 col-form-label">Contraseña:</label>
                                 <div class="col-sm-7">
-                                    <input type="password" name="password" id="inputPassword"
+                                    <input type="password" value = '<?php echo $buscado["UPassword"] ?>' name="password" id="inputPassword"
                                            placeholder="Ingrese una Contraseña">
                                 </div>
                             </div>
@@ -145,7 +145,7 @@
                                 <label for="inputRePassword" class="col-sm-5 col-form-label">Confirmar
                                     Contraseña:</label>
                                 <div class="col-sm-7">
-                                    <input type="password" name="rePassword" id="inputRePassword"
+                                    <input type="password" value = '<?php echo $buscado["UPassword"] ?>' name="rePassword" id="inputRePassword"
                                            placeholder="Confirme su Contraseña">
                                 </div>
                             </div>
