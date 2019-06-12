@@ -6,7 +6,7 @@
     var generoId = <?php echo $buscado["GeneroId"]; ?>;
     const pathGetPartidosByProvinciaId = "<?php echo getBaseAddress() . "Seguridad/getPartidosByProvinciaId"; ?>";
     const pathGetLocalidadesByPartidoId = "<?php echo getBaseAddress() . "Seguridad/getLocalidadesByPartidoId"; ?>";
-    const pathRegistrarUsuario = "<?php echo getBaseAddress() . "Seguridad/registrarUsuario"; ?>";
+    const pathModificarUsuario = "<?php echo getBaseAddress() . "Perfil/modificarUsuario"; ?>";
 </script>
 <div class="">
     <div class="header d-flex justify-content-between p-3 align-items-center">
@@ -58,7 +58,7 @@
     <div class="container-fluid">
         <div class="m-5 p-3 border border-dark rounded-0">
             <h3 class="text-left mb-4">Información Personal</h3>
-            <form method="POST">
+            <form method="POST" action=" <?php echo getBaseAddress() . "Perfil/modificarUsuario"; ?>">
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="col-sm-6">
                         <div class="form-row">
@@ -165,6 +165,7 @@
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" name="id" id='inputId' value="<?php echo $buscado["Id"] ?>">
                 </div>
                 <div class="d-flex mx-auto w-25 justify-content-around align-items-center">
                     <button type="submit" id="btnGuardar" class="btn btn-danger">Guardar</button>

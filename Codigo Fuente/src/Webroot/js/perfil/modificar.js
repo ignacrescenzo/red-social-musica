@@ -278,20 +278,22 @@ btnGuardar.click(function () {
 });
 
 function realizarModificacion() {
-    $("input,select").prop('disabled', true);
-    btnGuardar.prop('disabled', true);
-    var obj = {};
-    obj.nombre = inputNombre.val();
-    obj.apellido = inputApellido.val();
-    obj.email = inputEmail.val();
-    obj.password = inputPassword.val();
-    obj.fechaNacimiento = inputFechaNacimiento.val();
-    obj.generoId = $("#selectGenero").val();
-    obj.provinciaId = $("#selectProvincia").val();
-    obj.partidoId = $("#selectPartido").val();
-    obj.localidadId = $("#selectLocalidad").val();
-    alert("FALTA HACER");
+    // $("input,select").prop('disabled', true);
+    // btnGuardar.prop('disabled', true);
+    // var obj = {};
+    // obj.id = inputId.val();
+    // obj.nombre = inputNombre.val();
+    // obj.apellido = inputApellido.val();
+    // obj.email = inputEmail.val();
+    // obj.password = inputPassword.val();
+    // obj.fechaNacimiento = inputFechaNacimiento.val();
+    // obj.generoId = $("#selectGenero").val();
+    // obj.provinciaId = $("#selectProvincia").val();
+    // obj.partidoId = $("#selectPartido").val();
+    // obj.localidadId = $("#selectLocalidad").val();
+    //alert("FALTA HACER");
     ///TODO
+    btnGuardar.submit();
     //llamadaAjax(pathModificarUsuario, JSON.stringify(obj), true, "mostrarModalModificacionExitosa", "mostrarModalError");
 }
 

@@ -76,4 +76,22 @@ class PerfilController extends Controller
 
         echo json_encode($localidadesDto);
     }
+
+    function modificarUsuario($user){
+        $usuario = new Usuario();
+        $usuario->setId($user["id"]);
+        $usuario->setNombre($user["nombre"]);
+        $usuario->setEmail($user["email"]);
+        $usuario->setFechaNacimiento($user["fechaDeNacimiento"]);
+        $usuario->setProvinciaId($user["provincia"]);
+        $usuario->setPartidoId($user["partido"]);
+        $usuario->setLocalidadId($user["localidad"]);
+        $usuario->setGeneroId($user["genero"]);
+        $usuario->setApellido($user["apellido"]);
+        $usuario->setUpassword($user["password"]);
+        $usuario->actualizarUsuario();
+
+
+        header("Location:" . getBaseAddress());
+    }
 }
