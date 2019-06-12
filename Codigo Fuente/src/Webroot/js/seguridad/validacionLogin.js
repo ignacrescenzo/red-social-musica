@@ -10,9 +10,9 @@ function validarEmailOrNick() {
     var validacion = false;
     var emailOrNick = inputEmailOrNick.val();
 
-    if(emailOrNick === null || emailOrNick.length === 0 || emailOrNick === "") {
+    if (emailOrNick === null || emailOrNick.length === 0 || emailOrNick === "") {
         errorNick.fadeIn("slow");
-    } else if(!regexEmail.test(emailOrNick) && !regexLetrasYNumeros.test(emailOrNick)) {
+    } else if (!regexEmail.test(emailOrNick) && !regexLetrasYNumeros.test(emailOrNick)) {
         errorNick.fadeIn("slow");
     } else {
         validacion = true;
@@ -28,7 +28,7 @@ function validarPassword() {
     if (pass === null || pass.length === 0 || pass === "") {
         $("#errorPass").fadeIn("slow");
         return false;
-    } else if(pass.length < 6 || pass.length > 15 || !regexLetrasYNumeros.test(pass)) {
+    } else if (pass.length < 6 || pass.length > 15 || !regexLetrasYNumeros.test(pass)) {
         $("#errorPass2").fadeIn("slow");
     } else {
         validacion = true;
@@ -36,14 +36,29 @@ function validarPassword() {
 
     return validacion;
 }
+$("input").keypress(function (e) {
+    if (e.keyCode == 13) {
+        $(".error").fadeOut();
 
+        var validacion = validarEmailOrNick() && validarPassword();
+
+        if (validacion) {
+            $("input").prop("disabled", true);
+            btnIngresar.prop("disabled", true);
+            var obj = {};
+            obj.emailOrNick = inputEmailOrNick.val();
+            obj.password = inputPassword.val();
+            llamadaAjax(pathAccionLoguear, JSON.stringify(obj), true, "loginExitoso", "loginFallido");
+        }
+    }
+});
 btnIngresar.click(function () {
 
     $(".error").fadeOut();
 
     var validacion = validarEmailOrNick() && validarPassword();
 
-    if(validacion) {
+    if (validacion) {
         $("input").prop("disabled", true);
         btnIngresar.prop("disabled", true);
         var obj = {};
