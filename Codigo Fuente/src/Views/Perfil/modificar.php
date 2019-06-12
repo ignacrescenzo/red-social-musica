@@ -1,7 +1,9 @@
 <script>
     var pathCerrarSesion = "<?php echo getBaseAddress() . "Seguridad/cerrarSesion"; ?>";
+    const pathGetPartidosByProvinciaId = "<?php echo getBaseAddress() . "Seguridad/getPartidosByProvinciaId"; ?>";
+    const pathGetLocalidadesByPartidoId = "<?php echo getBaseAddress() . "Seguridad/getLocalidadesByPartidoId"; ?>";
+    const pathRegistrarUsuario = "<?php echo getBaseAddress() . "Seguridad/registrarUsuario"; ?>";
 </script>
-
 <div class="">
     <div class="header d-flex justify-content-between p-3 align-items-center">
         <div class="d-flex">
@@ -79,7 +81,11 @@
                                 <label for="selectSexo" class="col-sm-5 col-form-label">Género:</label>
                                 <div class="col-sm-7">
                                     <select name="genero" id="selectGenero">
-                                        <option value="0" disabled>Seleccione su Género</option>
+                                        <option value="0" disabled selected>Seleccione su Género</option>
+                                        <?php
+                                        foreach ($generos as $genero)
+                                            echo "<option value='" . $genero->getId() . "'>" . $genero->getNombre() . "</option>";
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -104,7 +110,11 @@
                                 <label for="selectProvincia" class="col-sm-5 col-form-label">Provincia:</label>
                                 <div class="col-sm-7">
                                     <select name="provincia" id="selectProvincia">
-                                        <option value="0" disabled>Seleccione una Provincia</option>
+                                        <option value="0" disabled selected>Seleccione una Provincia</option>
+                                        <?php
+                                        foreach ($provincias as $provincia)
+                                            echo "<option value='" . $provincia->getId() . "'>" . $provincia->getNombre() . "</option>";
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -112,7 +122,7 @@
                                 <label for="selectPartido" class="col-sm-5 col-form-label">Partido:</label>
                                 <div class="col-sm-7">
                                     <select name="partido" id="selectPartido">
-                                        <option value="0" disabled>Seleccione su Partido</option>
+                                        <option value="0" selected disabled>Seleccione su Partido</option>
                                     </select>
                                 </div>
                             </div>
@@ -120,7 +130,7 @@
                                 <label for="selectLocalidad" class="col-sm-5 col-form-label">Localidad:</label>
                                 <div class="col-sm-7">
                                     <select name="localidad" id="selectLocalidad">
-                                        <option value="0" disabled>Seleccione su Localidad</option>
+                                        <option value="0" selected disabled>Seleccione su Localidad</option>
                                     </select>
                                 </div>
                             </div>
@@ -153,8 +163,8 @@
                     </div>
                 </div>
                 <div class="d-flex mx-auto w-25 justify-content-around align-items-center">
-                    <button type="submit" class="btn btn-danger">Guardar</button>
-                    <button type="reset" class="btn btn-secondary">Cancelar</button>
+                    <button type="submit" id="btnGuardar" class="btn btn-danger">Guardar</button>
+                    <button type="reset" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
                 </div>
             </form>
         </div>
