@@ -19,16 +19,18 @@ var selectProvincia = $("#selectProvincia");
 var selectPartido = $("#selectPartido");
 var selectLocalidad = $("#selectLocalidad");
 
+
+
 function inicializarSelectPartido(provinciaId) {
     var obj = {};
     obj.provinciaId = parseInt(provinciaId, 10);
-    llamadaAjax(pathGetPartidosByProvinciaId, JSON.stringify(obj), true, "cargarSelectPartido", "dummy");
+    llamadaAjax(pathGetPartidosByProvinciaId, JSON.stringify(obj), false, "cargarSelectPartido", "dummy");
 }
 
 function inicializarSelectLocalidad(partidoId) {
     var obj = {};
     obj.partidoId = parseInt(partidoId, 10);
-    llamadaAjax(pathGetLocalidadesByPartidoId, JSON.stringify(obj), true, "cargarSelectLocalidad", "dummy");
+    llamadaAjax(pathGetLocalidadesByPartidoId, JSON.stringify(obj), false, "cargarSelectLocalidad", "dummy");
 }
 
 function cargarSelectLocalidad(localidades) {
@@ -292,3 +294,13 @@ function realizarModificacion() {
     ///TODO
     //llamadaAjax(pathModificarUsuario, JSON.stringify(obj), true, "mostrarModalModificacionExitosa", "mostrarModalError");
 }
+
+function inicializarUbicacionYGenero() {
+    selectProvincia.val($('#selectProvincia option[value="' + window.provinciaId + '"]').val());
+    inicializarSelectPartido(selectProvincia.val());
+    selectPartido.val($('#selectPartido option[value="' + window.partidoId + '"]').val());
+    inicializarSelectLocalidad(selectPartido.val());
+    selectLocalidad.val($('#selectLocalidad option[value="' + window.localidadId + '"]').val());
+    selectGenero.val(window.generoId);
+}
+inicializarUbicacionYGenero();

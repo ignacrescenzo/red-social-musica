@@ -1,5 +1,9 @@
 <script>
     var pathCerrarSesion = "<?php echo getBaseAddress() . "Seguridad/cerrarSesion"; ?>";
+    var provinciaId = <?php echo $buscado["ProvinciaId"]; ?>;
+    var localidadId = <?php echo $buscado["LocalidadId"]; ?>;
+    var partidoId = <?php echo $buscado["PartidoId"]; ?>;
+    var generoId = <?php echo $buscado["GeneroId"]; ?>;
     const pathGetPartidosByProvinciaId = "<?php echo getBaseAddress() . "Seguridad/getPartidosByProvinciaId"; ?>";
     const pathGetLocalidadesByPartidoId = "<?php echo getBaseAddress() . "Seguridad/getLocalidadesByPartidoId"; ?>";
     const pathRegistrarUsuario = "<?php echo getBaseAddress() . "Seguridad/registrarUsuario"; ?>";
@@ -110,7 +114,7 @@
                                 <label for="selectProvincia" class="col-sm-5 col-form-label">Provincia:</label>
                                 <div class="col-sm-7">
                                     <select name="provincia" id="selectProvincia">
-                                        <option value="0" disabled selected>Seleccione una Provincia</option>
+                                        <option value="0" disabled>Seleccione una Provincia</option>
                                         <?php
                                         foreach ($provincias as $provincia)
                                             echo "<option value='" . $provincia->getId() . "'>" . $provincia->getNombre() . "</option>";
