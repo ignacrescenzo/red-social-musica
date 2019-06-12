@@ -283,4 +283,12 @@ class Usuario extends Model
 
         return $this->update($array);
     }
+
+    function iniciarSesion(){
+        
+    }
+
+    function cerrarSesion(){
+        
+    }
 }
