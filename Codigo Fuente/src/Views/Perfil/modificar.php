@@ -208,7 +208,7 @@
                     <input type="hidden" name="id" id='inputId' value="<?php echo $buscado["Id"] ?>">
                 </div>
                 <div class="d-flex mx-auto w-25 justify-content-around align-items-center">
-                    <button type="submit" id="btnGuardar" class="btn btn-danger">Guardar</button>
+                    <button type="button" id="btnGuardar" class="btn btn-danger">Guardar</button>
                     <button type="reset" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
                 </div>
             </form>
