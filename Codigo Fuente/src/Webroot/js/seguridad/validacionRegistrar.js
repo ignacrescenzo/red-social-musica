@@ -22,13 +22,11 @@ function validarNombre() {
     var validacion = false;
 
     if (nombre == null || nombre.length === 0 || nombre === "") {
-        $("#errorNombre").fadeIn("slow");
-    } else if (nombre.length < 3) {
-        $("#errorNombre2").fadeIn("slow");
-    } else if (nombre.length > 15) {
-        $("#errorNombre3").fadeIn("slow");
+        $("#errorNombre").removeClass("d-none").addClass("d-flex").find("span").text("Ingrese su nombre");
+    } else if (nombre.length < 3 || nombre.length > 15) {
+        $("#errorNombre").removeClass("d-none").addClass("d-flex").find("span").text("Entre 3 y 15 letras");
     } else if (!regexSoloLetras.test(nombre)) {
-        $("#errorNombre4").fadeIn("slow");
+        $("#errorNombre").removeClass("d-none").addClass("d-flex").find("span").text("Nombre inválido");
     } else {
         validacion = true;
     }
@@ -42,13 +40,11 @@ function validarApellido() {
     var validacion = false;
 
     if (apellido == null || apellido.length === 0 || apellido === "") {
-        $("#errorApellido").fadeIn("slow");
-    } else if (apellido.length < 3) {
-        $("#errorApellido2").fadeIn("slow");
-    } else if (apellido.length > 15) {
-        $("#errorApellido3").fadeIn("slow");
+        $("#errorApellido").removeClass("d-none").addClass("d-flex").find("span").text("Ingrese su apellido");
+    } else if (apellido.length < 3 || apellido.length > 15) {
+        $("#errorApellido").removeClass("d-none").addClass("d-flex").find("span").text("Entre 3 y 15 letras");
     } else if (!regexSoloLetras.test(apellido)) {
-        $("#errorApellido4").fadeIn("slow");
+        $("#errorApellido").removeClass("d-none").addClass("d-flex").find("span").text("Apellido inválido");
     } else {
         validacion = true;
     }
@@ -62,13 +58,13 @@ function validarNickname() {
     var validacion = false;
 
     if (nickname == null || nickname.length === 0 || nickname === "") {
-        $("#errorNickname").fadeIn("slow");
+        $("#errorNickname").removeClass("d-none").addClass("d-flex").find("span").text("Ingrese su nickname");
     } else if (nickname.length < 5) {
-        $("#errorNickname2").fadeIn("slow");
+        $("#errorNickname").removeClass("d-none").addClass("d-flex").find("span").text("Nick menor a 5 caracteres");
     } else if (nickname.length > 15) {
-        $("#errorNickname3").fadeIn("slow");
+        $("#errorNickname").removeClass("d-none").addClass("d-flex").find("span").text("Nick mayor a 15 caracteres");
     } else if (!regexLetrasYNumeros.test(nickname)) {
-        $("#errorNickname4").fadeIn("slow");
+        $("#errorNickname").removeClass("d-none").addClass("d-flex").find("span").text("Nickname inválido");
     } else {
         validacion = true;
     }
@@ -83,17 +79,17 @@ function validarPassword() {
     var validacion = false;
 
     if (password == null || password.length === 0 || password === "") {
-        $("#errorPassword").fadeIn("slow");
+        $("#errorPassword").removeClass("d-none").addClass("d-flex").find("span").text("Ingrese su contraseña");
     } else if (password.length < 6 || password.length > 15) {
-        $("#errorPassword2").fadeIn("slow");
+        $("#errorPassword").removeClass("d-none").addClass("d-flex").find("span").text("De 6 a 15 caracteres");
     } else if (!regexLetrasYNumeros.test(password)) {
-        $("#errorPassword3").fadeIn("slow");
+        $("#errorPassword").removeClass("d-none").addClass("d-flex").find("span").text("Contraseña inválida");
     }
 
     if (rePassword == null || rePassword.length === 0 || rePassword === "") {
-        $("#errorRePassword").fadeIn("slow");
+        $("#errorRePassword").removeClass("d-none").addClass("d-flex").find("span").text("Confirme su contraseña");
     } else if (password !== rePassword) {
-        $("#errorRePassword2").fadeIn("slow");
+        $("#errorRePassword").removeClass("d-none").addClass("d-flex").find("span").text("Las contraseñas no coinciden");
     } else {
         validacion = true;
     }
@@ -107,9 +103,9 @@ function validarEmail() {
     var validacion = false;
 
     if (email == null || email.length === 0 || email === "") {
-        $("#errorEmail").fadeIn("slow");
+        $("#errorEmail").removeClass("d-none").addClass("d-flex").find("span").text("Ingrese su email");
     } else if (!regexEmail.test(email)) {
-        $("#errorEmail2").fadeIn("slow");
+        $("#errorEmail").removeClass("d-none").addClass("d-flex").find("span").text("Email inválido");
     } else {
         validacion = true;
     }
@@ -123,9 +119,9 @@ function validarFechaNacimiento() {
     var validacion = false;
 
     if (!moment(fechaNacimiento, "YYYY-MM-DD").isValid()) {
-        $("#errorFechaNacimiento").fadeIn("slow");
+        $("#errorFechaNacimiento").removeClass("d-none").addClass("d-flex").find("span").text("Formato de fecha inválido");
     } else if (Math.round(moment.duration(moment().diff(moment(fechaNacimiento, "YYYY-MM-DD"))).asYears()) < 18) {
-        $("#errorFechaNacimiento2").fadeIn("slow");
+        $("#errorFechaNacimiento").removeClass("d-none").addClass("d-flex").find("span").text("Debe ser mayor de 18");
     } else {
         validacion = true;
     }
@@ -138,7 +134,7 @@ function validarProvincia() {
     var validacion = false;
 
     if (provincia === null || provincia === 0) {
-        $("#errorProvincia").fadeIn("slow");
+        $("#errorProvincia").removeClass("d-none").addClass("d-flex").find("span").text("Seleccione una provincia");
     } else {
         validacion = true;
     }
@@ -151,7 +147,7 @@ function validarPartido() {
     var validacion = false;
 
     if (partido === null || partido === 0) {
-        $("#errorPartido").fadeIn("slow");
+        $("#errorPartido").removeClass("d-none").addClass("d-flex").find("span").text("Seleccione un partido");
     } else {
         validacion = true;
     }
@@ -164,7 +160,7 @@ function validarLocalidad() {
     var validacion = false;
 
     if (localidad === null || localidad === 0) {
-        $("#errorLocalidad").fadeIn("slow");
+        $("#errorLocalidad").removeClass("d-none").addClass("d-flex").find("span").text("Seleccione una localidad");
     } else {
         validacion = true;
     }
@@ -177,7 +173,7 @@ function validarGenero() {
     var validacion = false;
 
     if (genero === null || genero === 0) {
-        $("#errorGenero").fadeIn("slow");
+        $("#errorGenero").removeClass("d-none").addClass("d-flex").find("span").text("Seleccione su género");
     } else {
         validacion = true;
     }
@@ -186,12 +182,12 @@ function validarGenero() {
 }
 
 function validarFormularioRegistracion() {
-    return validarNombre()
+    return validarNickname()
+        && validarPassword()
+        && validarEmail()
+        && validarNombre()
         && validarApellido()
         && validarFechaNacimiento()
-        && validarNickname()
-        && validarEmail()
-        && validarPassword()
         && validarGenero()
         && validarProvincia()
         && validarPartido()
@@ -217,7 +213,7 @@ function realizarRegistracion() {
 
 btnRegistrar.click(function () {
 
-    $(".error").fadeOut();
+    $(".error").removeClass("d-flex").addClass("d-none").find("span").text("");
 
     var validacion = validarFormularioRegistracion();
 

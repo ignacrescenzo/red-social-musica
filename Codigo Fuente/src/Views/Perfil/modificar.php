@@ -62,26 +62,38 @@
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="col-sm-6">
                         <div class="form-row">
-                            <div class="form-group row w-100 justify-content-start align-items-center">
+                            <div class="form-group row w-100 justify-content-start">
                                 <label for="inputNombre" class="col-sm-5 col-form-label">Nombre:</label>
                                 <div class="col-sm-7">
                                     <input type="text" value = '<?php echo $buscado["Nombre"] ?>' name="nombre" id="inputNombre" placeholder="Ingrese su Nombre">
+                                    <div id="errorNombre" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                                        <span class="text-center"></span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group row w-100 justify-content-start align-items-center">
+                            <div class="form-group row w-100 justify-content-start">
                                 <label for="inputApellido" class="col-sm-5 col-form-label">Apellido:</label>
                                 <div class="col-sm-7">
                                     <input type="text" name="apellido" value = '<?php echo $buscado["Apellido"] ?>' id="inputApellido"
                                            placeholder="Ingrese su Apellido">
+                                    <div id="errorApellido" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                                        <span class="text-center"></span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group row w-100 justify-content-start align-items-center">
+                            <div class="form-group row w-100 justify-content-start">
                                 <label for="inputEmail" class="col-sm-5 col-form-label">Email:</label>
                                 <div class="col-sm-7">
                                     <input type="email" value = '<?php echo $buscado["Email"] ?>' name="email" id="inputEmail" placeholder="Ingrese su Email">
+                                    <div id="errorEmail" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                                        <span class="text-center"></span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group row w-100 justify-content-start align-items-center">
+                            <div class="form-group row w-100 justify-content-start">
                                 <label for="selectSexo" class="col-sm-5 col-form-label">Género:</label>
                                 <div class="col-sm-7">
                                     <select name="genero" id="selectGenero">
@@ -91,6 +103,10 @@
                                             echo "<option value='" . $genero->getId() . "'>" . $genero->getNombre() . "</option>";
                                         ?>
                                     </select>
+                                    <div id="errorGenero" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                                        <span class="text-center"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -108,6 +124,10 @@
                                             <i class="fa fa-calendar-alt"></i>
                                         </div>
                                     </div>
+                                    <div id="errorFechaNacimiento" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                                        <span class="text-center"></span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row w-100 justify-content-start align-items-center">
@@ -120,6 +140,10 @@
                                             echo "<option value='" . $provincia->getId() . "'>" . $provincia->getNombre() . "</option>";
                                         ?>
                                     </select>
+                                    <div id="errorProvincia" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                                        <span class="text-center"></span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row w-100 justify-content-start align-items-center">
@@ -128,6 +152,10 @@
                                     <select name="partido" id="selectPartido">
                                         <option value="0" selected disabled>Seleccione su Partido</option>
                                     </select>
+                                    <div id="errorPartido" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                                        <span class="text-center"></span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row w-100 justify-content-start align-items-center">
@@ -136,6 +164,10 @@
                                     <select name="localidad" id="selectLocalidad">
                                         <option value="0" selected disabled>Seleccione su Localidad</option>
                                     </select>
+                                    <div id="errorLocalidad" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                                        <span class="text-center"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -149,6 +181,10 @@
                                 <div class="col-sm-7">
                                     <input type="password" value = '<?php echo $buscado["UPassword"] ?>' name="password" id="inputPassword"
                                            placeholder="Ingrese una Contraseña">
+                                    <div id="errorPassword" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                                        <span class="text-center"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -161,6 +197,10 @@
                                 <div class="col-sm-7">
                                     <input type="password" value = '<?php echo $buscado["UPassword"] ?>' name="rePassword" id="inputRePassword"
                                            placeholder="Confirme su Contraseña">
+                                    <div id="errorRePassword" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                                        <span class="text-center"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
