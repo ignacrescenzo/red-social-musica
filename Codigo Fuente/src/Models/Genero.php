@@ -60,4 +60,8 @@ class Genero extends Model
 
         return $generos;
     }
+
+    function consultar(){
+        
+    }
 }
