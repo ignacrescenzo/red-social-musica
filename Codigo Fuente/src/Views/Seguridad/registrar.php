@@ -37,36 +37,67 @@
             <div class="d-flex justify-content-between p-2">
                 <div class="mr-3 w-50">
                     <input type="text" name="nickname" placeholder="Usuario" id="inputNickname">
+                    <div id="errorNickname" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <span class="text-center"></span>
+                    </div>
                 </div>
                 <div class="w-50">
                     <input type="password" name="password" placeholder="Contraseña" id="inputPassword">
+                    <div id="errorPassword" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <span class="text-center"></span>
+                    </div>
                 </div>
             </div>
 
             <div class="d-flex justify-content-between p-2">
                 <div class="mr-3 w-50">
                     <input type="password" name="rePassword" placeholder="Confirmar contraseña" id="inputRePassword">
+                    <div id="errorRePassword" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <span class="text-center"></span>
+                    </div>
                 </div>
                 <div class="w-50">
                     <input type="email" name="email" placeholder="Email" id="inputEmail">
+                    <div id="errorEmail" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <span class="text-center"></span>
+                    </div>
                 </div>
             </div>
 
             <div class="d-flex justify-content-between p-2">
                 <div class="mr-3 w-50">
                     <input type="text" name="nombre" placeholder="Nombre" id="inputNombre">
+                    <div id="errorNombre" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <span class="text-center"></span>
+                    </div>
                 </div>
                 <div class="w-50">
                     <input type="text" name="apellido" placeholder="Apellido" id="inputApellido">
+                    <div id="errorApellido" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <span class="text-center"></span>
+                    </div>
                 </div>
             </div>
 
             <div class="d-flex justify-content-between p-2">
                 <div class="mr-3 w-50 d-flex">
-                    <input type="text" onfocus="(this.type='date')" name="fechaNacimiento" width="" placeholder="F. de nac."
-                           id="inputFechaNacimiento">
-                    <div class="d-flex justify-content-center align-items-center ml-2 w-auto">
-                        <i class="fa fa-calendar-alt"></i>
+                    <div class="d-flex">
+                        <input type="text" onfocus="(this.type='date')" name="fechaNacimiento" width=""
+                               placeholder="F. de nac."
+                               id="inputFechaNacimiento">
+                        <div class="d-flex justify-content-center align-items-center ml-2 w-auto">
+                            <i class="fa fa-calendar-alt"></i>
+                        </div>
+                    </div>
+                    <div id="errorFechaNacimiento" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <span class="text-center"></span>
                     </div>
                 </div>
                 <div class="w-50">
@@ -77,6 +108,10 @@
                             echo "<option value='" . $genero->getId() . "'>" . $genero->getNombre() . "</option>";
                         ?>
                     </select>
+                    <div id="errorGenero" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <span class="text-center"></span>
+                    </div>
                 </div>
             </div>
 
@@ -89,11 +124,19 @@
                             echo "<option value='" . $provincia->getId() . "'>" . $provincia->getNombre() . "</option>";
                         ?>
                     </select>
+                    <div id="errorProvincia" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <span class="text-center"></span>
+                    </div>
                 </div>
                 <div class="w-50">
                     <select name="partido" id="selectPartido">
                         <option value="0" selected disabled>Seleccione un Partido</option>
                     </select>
+                    <div id="errorPartido" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <span class="text-center"></span>
+                    </div>
                 </div>
             </div>
 
@@ -102,6 +145,10 @@
                     <select name="localidad" id="selectLocalidad">
                         <option value="0" selected disabled>Selecciona una Localidad</option>
                     </select>
+                    <div id="errorLocalidad" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <span class="text-center"></span>
+                    </div>
                 </div>
                 <div class="w-50">
 

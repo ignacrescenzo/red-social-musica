@@ -32,10 +32,22 @@
             </h1>
         </div>
         <div class="w-50 mx-auto p-1">
-            <input type="text" placeholder="Usuario" name="emailOrNick" class="mb-4" id="inputEmailOrNick">
-            <input type="password" name="password" placeholder="Contraseña" id="inputPassword">
+            <div class="form-group mb-4">
+                <input type="text" placeholder="Usuario" name="emailOrNick" id="inputEmailOrNick">
+                <div id="errorEmailOrNick" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    <span class="text-center"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Contraseña" id="inputPassword">
+                <div id="errorPassword" class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    <span class="text-center"></span>
+                </div>
+            </div>
         </div>
-        <div class="w-50 mx-auto text-center mt-4">
+        <div class="w-50 mx-auto text-center my-4">
             <button id="btnIngresar">Iniciar sesión</button>
         </div>
     </div>

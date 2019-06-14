@@ -18,21 +18,20 @@
             </h1>
         </div>
         <div class="d-flex">
-        <?php
-        if (isset($_SESSION["session"])) {
+            <?php
+            if (isset($_SESSION["session"])) {
 
-            echo "<div class='dropdown'>
-            <button class='btn dropdown-toggle text-white' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                " . unserialize($_SESSION["session"])->getUserName() . "
-            </button>
-            <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-                <a class='dropdown-item' href='#'>Perfil</a>
-                <a class='dropdown-item' href='#' data-toggle='modal' data-target='#cerrarModal'>Cerrar sesión</a>
+                echo '<div class="mr-3">
+                <a href="' . getBaseAddress() . 'Perfil/modificar' . '">
+                    ' . unserialize($_SESSION["session"])->getUserName() . '
+                </a>
             </div>
-            </div>";
+            <div>
+                <a class="text-white" href="#" data-toggle="modal" data-target="#cerrarModal">Cerrar sesión</a>
+            </div>';
 
-        } else {
-            echo '<div class="mr-3">
+            } else {
+                echo '<div class="mr-3">
                 <a href="' . getBaseAddress() . 'Seguridad/login' . '">
                     Login
                 </a>
@@ -42,8 +41,8 @@
                     Registrarse
                 </a>
             </div>';
-        }
-        ?>
+            }
+            ?>
         </div>
 
 
@@ -69,21 +68,22 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="cerrarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">¿Seguro desea cerrar sesión?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        <button type="button" id="btnCerrarSesion" class="btn btn-danger">Si</button>
-      </div>
+<div class="modal fade" id="cerrarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¿Seguro desea cerrar sesión?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" id="btnCerrarSesion" class="btn btn-danger">Si</button>
+            </div>
+        </div>
     </div>
-  </div>
-</div>    
+</div>
 
 <script src="<?php echo getBaseAddress() . "Webroot/js/home/index.js" ?>"></script>

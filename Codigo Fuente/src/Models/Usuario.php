@@ -268,6 +268,27 @@ class Usuario extends Model
 
     public function actualizarUsuario()
     {
+        $array = [
+            "Id" => $this->getId(),
+            "Nombre" => $this->getNombre(),
+            "Apellido" => $this->getApellido(),
+            "Email" => $this->getEmail(),
+            "UPassword" => $this->getUpassword(),
+            "FechaNacimiento" =>  $this->getFechaNacimiento(),
+            "GeneroId" =>  $this->getGeneroId(),
+            "ProvinciaId" => $this->getProvinciaId(),
+            "PartidoId" =>  $this->getPartidoId(),
+            "LocalidadId" => $this->getLocalidadId()
+        ];
+
+        return $this->update($array);
+    }
+
+    function iniciarSesion(){
+        
+    }
+
+    function cerrarSesion(){
         
     }
 }
