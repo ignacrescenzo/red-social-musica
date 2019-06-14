@@ -111,13 +111,11 @@ function validarNombre() {
     var validacion = false;
 
     if (nombre == null || nombre.length === 0 || nombre === "") {
-        $("#errorNombre").removeClass("d-none").addClass("d-flex").find("span").text("Debe insertar un nombre");
-    } else if (nombre.length < 3) {
-        $("#errorNombre").removeClass("d-none").addClass("d-flex").find("span").text("Debe tener mínimo 3 letras");
-    } else if (nombre.length > 15) {
-        $("#errorNombre").removeClass("d-none").addClass("d-flex").find("span").text("Debe tener máximo 15 letras");
+        $("#errorNombre").removeClass("d-none").addClass("d-flex").find("span").text("Ingrese su nombre");
+    } else if (nombre.length < 3 || nombre.length > 15) {
+        $("#errorNombre").removeClass("d-none").addClass("d-flex").find("span").text("Entre 3 y 15 letras");
     } else if (!regexSoloLetras.test(nombre)) {
-        $("#errorNombre").removeClass("d-none").addClass("d-flex").find("span").text("Solo se permiten letras");
+        $("#errorNombre").removeClass("d-none").addClass("d-flex").find("span").text("Nombre inválido");
     } else {
         validacion = true;
     }
@@ -131,13 +129,11 @@ function validarApellido() {
     var validacion = false;
 
     if (apellido == null || apellido.length === 0 || apellido === "") {
-        $("#errorApellido").removeClass("d-none").addClass("d-flex").find("span").text("Debe insertar un apellido");
-    } else if (apellido.length < 3) {
-        $("#errorApellido").removeClass("d-none").addClass("d-flex").find("span").text("Debe tener mínimo 3 letras");
-    } else if (apellido.length > 15) {
-        $("#errorApellido").removeClass("d-none").addClass("d-flex").find("span").text("Debe tener máximo 15 letras");
+        $("#errorApellido").removeClass("d-none").addClass("d-flex").find("span").text("Ingrese su apellido");
+    } else if (apellido.length < 3 || apellido.length > 15) {
+        $("#errorApellido").removeClass("d-none").addClass("d-flex").find("span").text("Entre 3 y 15 letras");
     } else if (!regexSoloLetras.test(apellido)) {
-        $("#errorApellido").removeClass("d-none").addClass("d-flex").find("span").text("Solo se permiten letras");
+        $("#errorApellido").removeClass("d-none").addClass("d-flex").find("span").text("Apellido inválido");
     } else {
         validacion = true;
     }
@@ -152,11 +148,11 @@ function validarPassword() {
     var validacion = false;
 
     if (password == null || password.length === 0 || password === "") {
-        $("#errorPassword").removeClass("d-none").addClass("d-flex").find("span").text("Inserte una contraseña");
+        $("#errorPassword").removeClass("d-none").addClass("d-flex").find("span").text("Ingrese su contraseña");
     } else if (password.length < 6 || password.length > 15) {
-        $("#errorPassword").removeClass("d-none").addClass("d-flex").find("span").text("Debe tener entre 6 y 15 letras");
+        $("#errorPassword").removeClass("d-none").addClass("d-flex").find("span").text("De 6 a 15 caracteres");
     } else if (!regexLetrasYNumeros.test(password)) {
-        $("#errorPassword").removeClass("d-none").addClass("d-flex").find("span").text("Formato de password inválido");
+        $("#errorPassword").removeClass("d-none").addClass("d-flex").find("span").text("Contraseña inválida");
     }
 
     if (rePassword == null || rePassword.length === 0 || rePassword === "") {
@@ -176,9 +172,9 @@ function validarEmail() {
     var validacion = false;
 
     if (email == null || email.length === 0 || email === "") {
-        $("#errorEmail").removeClass("d-none").addClass("d-flex").find("span").text("Debe insertar un email");
+        $("#errorEmail").removeClass("d-none").addClass("d-flex").find("span").text("Ingrese su email");
     } else if (!regexEmail.test(email)) {
-        $("#errorEmail").removeClass("d-none").addClass("d-flex").find("span").text("Formato de Email Inválido");
+        $("#errorEmail").removeClass("d-none").addClass("d-flex").find("span").text("Email inválido");
     } else {
         validacion = true;
     }
@@ -192,9 +188,9 @@ function validarFechaNacimiento() {
     var validacion = false;
 
     if (!moment(fechaNacimiento, "YYYY-MM-DD").isValid()) {
-        $("#errorFechaNacimiento").removeClass("d-none").addClass("d-flex").find("span").text("Formato de Fecha Inválido");
+        $("#errorFechaNacimiento").removeClass("d-none").addClass("d-flex").find("span").text("Formato de fecha inválido");
     } else if (Math.round(moment.duration(moment().diff(moment(fechaNacimiento, "YYYY-MM-DD"))).asYears()) < 18) {
-        $("#errorFechaNacimiento").removeClass("d-none").addClass("d-flex").find("span").text("Debe ser mayor de 18 años");
+        $("#errorFechaNacimiento").removeClass("d-none").addClass("d-flex").find("span").text("Debe ser mayor de 18");
     } else {
         validacion = true;
     }
@@ -207,7 +203,7 @@ function validarProvincia() {
     var validacion = false;
 
     if (provincia === null || provincia === 0) {
-        $("#errorProvincia").removeClass("d-none").addClass("d-flex").find("span").text("Debe seleccionar una provincia");
+        $("#errorProvincia").removeClass("d-none").addClass("d-flex").find("span").text("Seleccione una provincia");
     } else {
         validacion = true;
     }
@@ -220,7 +216,7 @@ function validarPartido() {
     var validacion = false;
 
     if (partido === null || partido === 0) {
-        $("#errorPartido").removeClass("d-none").addClass("d-flex").find("span").text("Debe seleccionar un partido");
+        $("#errorPartido").removeClass("d-none").addClass("d-flex").find("span").text("Seleccione un partido");
     } else {
         validacion = true;
     }
@@ -233,7 +229,7 @@ function validarLocalidad() {
     var validacion = false;
 
     if (localidad === null || localidad === 0) {
-        $("#errorLocalidad").removeClass("d-none").addClass("d-flex").find("span").text("Debe seleccionar una localidad");
+        $("#errorLocalidad").removeClass("d-none").addClass("d-flex").find("span").text("Seleccione una localidad");
     } else {
         validacion = true;
     }
@@ -246,7 +242,7 @@ function validarGenero() {
     var validacion = false;
 
     if (genero === null || genero === 0) {
-        $("#errorGenero").removeClass("d-none").addClass("d-flex").find("span").text("Debe seleccionar su género");
+        $("#errorGenero").removeClass("d-none").addClass("d-flex").find("span").text("Seleccione su género");
     } else {
         validacion = true;
     }
@@ -266,6 +262,11 @@ function validarFormularioModificacion() {
         validarLocalidad();
 }
 
+function realizarModificacion() {
+    btnGuardar.prop("type", "submit");
+    btnGuardar.submit();
+}
+
 btnGuardar.click(function (e) {
 
     $(".error").removeClass("d-flex").addClass("d-none").find("span").text("");
@@ -276,10 +277,6 @@ btnGuardar.click(function (e) {
         realizarModificacion();
     }
 });
-
-function realizarModificacion() {
-    btnGuardar.submit();
-}
 
 function inicializarUbicacionYGenero() {
     selectProvincia.val($('#selectProvincia option[value="' + window.provinciaId + '"]').val());
