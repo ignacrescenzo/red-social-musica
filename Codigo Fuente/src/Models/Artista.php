@@ -194,5 +194,12 @@ class Artista extends Usuario {
     function responderInvitacion(){
         
     }
+    function ingresarDatosBanda(){
+
+    }
+
+    function ingresarUbicacionBanda(){
+        
+    }
 
 }

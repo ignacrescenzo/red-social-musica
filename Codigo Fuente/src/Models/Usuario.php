@@ -291,4 +291,7 @@ class Usuario extends Model
     function cerrarSesion(){
         
     }
+    function eliminar(){
+        
+    }
 }
