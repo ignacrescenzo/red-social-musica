@@ -94,4 +94,42 @@ class BandaController extends Controller
 
         header("Location:" . getBaseAddress());
     }
+
+    function crearBanda($data) {
+
+        $banda = new Banda();
+
+        $banda->setNombre($data["nombreBanda"]);
+        $banda->setProvinciaId($data["provincia"]);
+        $banda->setPartidoId($data["partido"]);
+        $banda->setLocalidadId($data["localidad"]);
+        $banda->setGenero($data["generoMusical"]);
+        $banda->setLiderId(unserialize($_SESSION["session"])->getId());
+
+        if($banda->existeBanda()) {
+            throw new BandaDuplicadaException("Ya existe una banda con el nombre " . $banda->getNombre(), CodigoError::BandaDuplicada);
+        }
+
+        if(!$banda->crearBanda()) {
+            throw new BandaNoRegistradaException("Ha ocurrido un error interno y no se ha podido registrar su banda", CodigoError::BandaNoRegistradaException);
+        }
+
+        foreach ($data["red"] as $red) {
+            if($red) {
+                $redSocial = new RedSocial();
+                $redSocial->setBandaId($banda->getId());
+                $redSocial->setLink($red);
+
+                if($redSocial->existeRedSocial()) {
+                    throw new RedSocialDuplicadaException("Ya existe una red social con el enlace " . $redSocial->getLink() . " para la banda con Id " . $redSocial->getBandaId(), CodigoError::RedSocialDuplicada);
+                }
+
+                if(!$redSocial->guardarRedSocialBanda()) {
+                    throw new RedSocialNoRegistradaException("Ha ocurrido un error interno y no se ha podido registrar su red social", CodigoError::RedSocialNoRegistradaException);
+                }
+            }
+        }
+
+        header("Location:" . getBaseAddress());
+    }
 }
