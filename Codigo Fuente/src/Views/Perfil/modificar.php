@@ -120,8 +120,10 @@
                             </div>
                             </a>
                             <div style="cursor:pointer;">
+                                <?php echo "<a href ='" . getBaseAddress() . "Banda/misBandas'>"; ?>
                                 Mis bandas
                             </div>
+                            </a>
                         </div>
                     </div>
                 </div>
