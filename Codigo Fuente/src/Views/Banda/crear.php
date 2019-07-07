@@ -115,10 +115,8 @@
                          data-parent="#accordionExample">
                         <div class="card-body d-flex flex-column">
                             <div class="mb-3" style="cursor:pointer;">
-                                <?php echo "<a href ='" . getBaseAddress() . "Banda/crear'>"; ?>
                                 Crear banda
                             </div>
-                            </a>
                             <div style="cursor:pointer;">
                                 Mis bandas
                             </div>
@@ -143,17 +141,17 @@
             </div>
         </div>
         <div class="m-5 w-75 p-3 border border-dark rounded-0">
-            <h3 class="text-left mb-4">Información Personal</h3>
-            <form method="POST" action=" <?php echo getBaseAddress() . "Perfil/modificarUsuario"; ?>">
+            <h3 class="text-left mb-4">Crear banda</h3>
+            <form id="formCrearBanda" method="POST" action=" <?php echo getBaseAddress() . "Banda/crearBanda"; ?>">
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="col-sm-6">
                         <div class="form-row">
                             <div class="form-group row w-100 justify-content-start">
-                                <label for="inputNombre" class="col-sm-5 col-form-label">Nombre:</label>
+                                <label for="inputNombreBanda" class="col-sm-5 col-form-label">Nombre:</label>
                                 <div class="col-sm-7">
-                                    <input type="text" value='<?php echo $buscado["Nombre"] ?>' name="nombre"
-                                           id="inputNombre" placeholder="Ingrese su Nombre">
-                                    <div id="errorNombre"
+                                    <input type="text" name="nombreBanda" id="inputNombreBanda"
+                                           placeholder="Ingrese el Nombre">
+                                    <div id="errorNombreBanda"
                                          class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
                                         <i class="fas fa-exclamation-triangle mr-2"></i>
                                         <span class="text-center"></span>
@@ -161,94 +159,11 @@
                                 </div>
                             </div>
                             <div class="form-group row w-100 justify-content-start">
-                                <label for="inputApellido" class="col-sm-5 col-form-label">Apellido:</label>
+                                <label for="selectGeneroMusical" class="col-sm-5 col-form-label">Géneros:</label>
                                 <div class="col-sm-7">
-                                    <input type="text" name="apellido" value='<?php echo $buscado["Apellido"] ?>'
-                                           id="inputApellido"
-                                           placeholder="Ingrese su Apellido">
-                                    <div id="errorApellido"
-                                         class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
-                                        <i class="fas fa-exclamation-triangle mr-2"></i>
-                                        <span class="text-center"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row w-100 justify-content-start">
-                                <label for="inputEmail" class="col-sm-5 col-form-label">Email:</label>
-                                <div class="col-sm-7">
-                                    <input type="email" value='<?php echo $buscado["Email"] ?>' name="email"
-                                           id="inputEmail" placeholder="Ingrese su Email">
-                                    <div id="errorEmail"
-                                         class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
-                                        <i class="fas fa-exclamation-triangle mr-2"></i>
-                                        <span class="text-center"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row w-100 justify-content-start">
-                                <label for="selectSexo" class="col-sm-5 col-form-label">Género:</label>
-                                <div class="col-sm-7">
-                                    <select name="genero" id="selectGenero">
-                                        <option value="0" disabled selected>Seleccione su Género</option>
-                                        <?php
-                                        foreach ($generos as $genero)
-                                            echo "<option value='" . $genero->getId() . "'>" . $genero->getNombre() . "</option>";
-                                        ?>
-                                    </select>
-                                    <div id="errorGenero"
-                                         class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
-                                        <i class="fas fa-exclamation-triangle mr-2"></i>
-                                        <span class="text-center"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-row">
-                            <div class="form-group row w-100 justify-content-start align-items-center">
-                                <label for="inputFechaDeNacimiento" class="col-sm-5 col-form-label">Fecha de
-                                    Nacimiento:</label>
-                                <div class="col-sm-7">
-                                    <div class="d-flex">
-                                        <input type="text" value='<?php echo $buscado["FechaNacimiento"] ?>'
-                                               onfocus="(this.type='date')" name="fechaDeNacimiento"
-                                               id="inputFechaDeNacimiento" placeholder="Fecha de Nacimiento">
-                                        <div class="d-flex justify-content-center align-items-center ml-2">
-                                            <i class="fa fa-calendar-alt"></i>
-                                        </div>
-                                    </div>
-                                    <div id="errorFechaNacimiento"
-                                         class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
-                                        <i class="fas fa-exclamation-triangle mr-2"></i>
-                                        <span class="text-center"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row w-100 justify-content-start align-items-center">
-                                <label for="selectProvincia" class="col-sm-5 col-form-label">Provincia:</label>
-                                <div class="col-sm-7">
-                                    <select name="provincia" id="selectProvincia">
-                                        <option value="0" disabled>Seleccione una Provincia</option>
-                                        <?php
-                                        foreach ($provincias as $provincia)
-                                            echo "<option value='" . $provincia->getId() . "'>" . $provincia->getNombre() . "</option>";
-                                        ?>
-                                    </select>
-                                    <div id="errorProvincia"
-                                         class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
-                                        <i class="fas fa-exclamation-triangle mr-2"></i>
-                                        <span class="text-center"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row w-100 justify-content-start align-items-center">
-                                <label for="selectPartido" class="col-sm-5 col-form-label">Partido:</label>
-                                <div class="col-sm-7">
-                                    <select name="partido" id="selectPartido">
-                                        <option value="0" selected disabled>Seleccione su Partido</option>
-                                    </select>
-                                    <div id="errorPartido"
+                                    <input type="text" name="generoMusical" placeholder="Ingrese el/los géneros"
+                                           id="inputGeneroMusical">
+                                    <div id="errorGeneroMusical"
                                          class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
                                         <i class="fas fa-exclamation-triangle mr-2"></i>
                                         <span class="text-center"></span>
@@ -268,19 +183,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex my-5 justify-content-center align-items-center">
-                    <div class="col-sm-6">
-                        <div class="form-row">
                             <div class="form-group row w-100 justify-content-start align-items-center">
-                                <label for="inputPassword" class="col-sm-5 col-form-label">Contraseña:</label>
+                                <label for="selectPartido" class="col-sm-5 col-form-label">Partido:</label>
                                 <div class="col-sm-7">
-                                    <input type="password" value='<?php echo $buscado["UPassword"] ?>' name="password"
-                                           id="inputPassword"
-                                           placeholder="Ingrese una Contraseña">
-                                    <div id="errorPassword"
+                                    <select name="partido" id="selectPartido">
+                                        <option value="0" selected disabled>Seleccione su Partido</option>
+                                    </select>
+                                    <div id="errorPartido"
                                          class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
                                         <i class="fas fa-exclamation-triangle mr-2"></i>
                                         <span class="text-center"></span>
@@ -289,16 +198,33 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 pb-5">
                         <div class="form-row">
+                            <div class="form-group row w-100 justify-content-start">
+                                <label for="inputRed1" class="col-sm-5 col-form-label">Redes sociales:</label>
+                                <div class="col-sm-7 pb-3">
+                                    <input type="text" name="red[]" id="inputRed1"
+                                           placeholder="Ingrese su red social">
+
+                                </div>
+                                <div class="d-flex mt-4 ml-2">
+                                    <input type="text" class="mr-2 " name="red[]" id="inputRed2"
+                                           placeholder="Ingrese su red social">
+                                    <input type="text" name="red[]" id="inputRed3"
+                                           placeholder="Ingrese su red social">
+                                </div>
+                            </div>
                             <div class="form-group row w-100 justify-content-start align-items-center">
-                                <label for="inputRePassword" class="col-sm-5 col-form-label">Confirmar
-                                    Contraseña:</label>
+                                <label for="selectProvincia" class="col-sm-5 col-form-label">Provincia:</label>
                                 <div class="col-sm-7">
-                                    <input type="password" value='<?php echo $buscado["UPassword"] ?>' name="rePassword"
-                                           id="inputRePassword"
-                                           placeholder="Confirme su Contraseña">
-                                    <div id="errorRePassword"
+                                    <select name="provincia" id="selectProvincia">
+                                        <option value="0" disabled>Seleccione una Provincia</option>
+                                        <?php
+                                        foreach ($provincias as $provincia)
+                                            echo "<option value='" . $provincia->getId() . "'>" . $provincia->getNombre() . "</option>";
+                                        ?>
+                                    </select>
+                                    <div id="errorProvincia"
                                          class="error d-none w-100 p-2 my-2 shadow rounded bg-warning align-items-center justify-content-center">
                                         <i class="fas fa-exclamation-triangle mr-2"></i>
                                         <span class="text-center"></span>
@@ -307,11 +233,10 @@
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" name="id" id='inputId' value="<?php echo $buscado["Id"] ?>">
                 </div>
-                <div class="d-flex mx-auto w-25 justify-content-around align-items-center">
-                    <button type="button" id="btnGuardar" class="btn btn-danger">Guardar</button>
-                    <button type="reset" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
+                <div class="d-flex ml-auto w-25 justify-content-around align-items-center">
+                    <button type="reset" id="btnCancelar" class="btn btn-danger">Cancelar</button>
+                    <button type="submit" id="btnGuardar" class="btn btn-secondary">Crear Banda</button>
                 </div>
             </form>
         </div>
@@ -337,4 +262,4 @@
     </div>
 </div>
 
-<script src="<?php echo getBaseAddress() . "Webroot/js/perfil/modificar.js"; ?>"></script>
+<script src="<?php echo getBaseAddress() . "Webroot/js/banda/crear.js"; ?>"></script>

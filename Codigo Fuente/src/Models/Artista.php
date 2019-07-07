@@ -114,6 +114,7 @@ class Artista extends Usuario {
     function realizarPublicacion(){
 
     }
+    
     function consultarPerfilArtistico(){
         
     }
@@ -129,6 +130,7 @@ class Artista extends Usuario {
     function consultarBandasPropias(){
 
     }
+    
     function consultarSuscripcion(){
         
     }
@@ -192,6 +194,14 @@ class Artista extends Usuario {
     }
 
     function responderInvitacion(){
+        
+    }
+    
+    function ingresarUbicacionBanda(){
+        
+    }
+    
+    function buscarTarjeta(){
         
     }
 

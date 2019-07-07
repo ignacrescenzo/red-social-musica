@@ -9,12 +9,8 @@ var inputRePassword = $('#inputRePassword');
 var inputEmail = $('#inputEmail');
 var inputFechaNacimiento = $('#inputFechaDeNacimiento');
 var selectGenero = $("#selectGenero");
-var selectProvincia = $("#selectProvincia");
-var selectPartido = $("#selectPartido");
-var selectLocalidad = $("#selectLocalidad");
 var btnGuardar = $("#btnGuardar");
 var btnCancelar = $("#btnCancelar");
-
 var selectProvincia = $("#selectProvincia");
 var selectPartido = $("#selectPartido");
 var selectLocalidad = $("#selectLocalidad");

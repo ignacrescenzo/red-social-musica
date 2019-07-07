@@ -12,4 +12,8 @@ abstract class CodigoError
     const PasswordInvalida = 5;
     const EmailOrNickInvalido = 7;
     const UsuarioNoEncontrado = 15;
+    const BandaNoRegistradaException = 18;
+    const RedSocialNoRegistradaException = 20;
+    const BandaDuplicada = 21;
+    const RedSocialDuplicada = 22;
 }
