@@ -132,4 +132,14 @@ class BandaController extends Controller
 
         header("Location:" . getBaseAddress());
     }
+
+    function misBandas()
+    {
+        $banda = new Banda();
+
+        $d["title"] = "Mis bandas";
+        $d["bandas"] = $banda->traerMisBandas(unserialize($_SESSION["session"])->getId());
+        $this->set($d);
+        $this->render("misBandas");
+    }
 }
