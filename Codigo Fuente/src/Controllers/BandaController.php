@@ -130,7 +130,7 @@ class BandaController extends Controller
             }
         }
 
-        header("Location:" . getBaseAddress());
+        header("Location:" . getBaseAddress() . "Banda/misBandas");
     }
 
     function misBandas()
