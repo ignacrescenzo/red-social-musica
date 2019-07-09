@@ -218,6 +218,6 @@ class Banda extends Model {
 
     public function existeBanda()
     {
-        return $this->pageRows(0, 1, "Nombre LIKE '%" . $this->getNombre() . "%'");
+        return $this->pageRows(0, 1, "Nombre LIKE '" . $this->getNombre() . "'");
     }
 }
