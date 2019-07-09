@@ -249,4 +249,49 @@ class Usuario extends Model
 
         return $row;
     }
+
+    public function traerUsuario($pk)
+    {
+        $usuario = $this->selectByPk($pk);
+
+        $this->setNombre($usuario["Nombre"]);
+        $this->setApellido($usuario["Apellido"]);
+        $this->setUsername($usuario["Username"]);
+        $this->setEmail($usuario["Email"]);
+        $this->setUpassword($usuario["UPassword"]);
+        $this->setFechaNacimiento($usuario["FechaNacimiento"]);
+        $this->setGeneroId($usuario["GeneroId"]);
+        $this->setProvinciaId($usuario["ProvinciaId"]);
+        $this->setPartidoId($usuario["PartidoId"]);
+        $this->setLocalidadId($usuario["LocalidadId"]);
+    }
+
+    public function actualizarUsuario()
+    {
+        $array = [
+            "Id" => $this->getId(),
+            "Nombre" => $this->getNombre(),
+            "Apellido" => $this->getApellido(),
+            "Email" => $this->getEmail(),
+            "UPassword" => $this->getUpassword(),
+            "FechaNacimiento" =>  $this->getFechaNacimiento(),
+            "GeneroId" =>  $this->getGeneroId(),
+            "ProvinciaId" => $this->getProvinciaId(),
+            "PartidoId" =>  $this->getPartidoId(),
+            "LocalidadId" => $this->getLocalidadId()
+        ];
+
+        return $this->update($array);
+    }
+
+    function iniciarSesion(){
+        
+    }
+
+    function cerrarSesion(){
+        
+    }
+    function eliminar(){
+        
+    }
 }

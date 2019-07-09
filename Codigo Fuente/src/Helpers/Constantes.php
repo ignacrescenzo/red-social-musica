@@ -12,12 +12,14 @@ abstract class Constantes
     const LOGINTITLE = "Login";
     const REGISTRARTITLE = "Registrar";
     const INDEXTITLE = "Index";
+    const MODIFICARPERFILTITLE = "Modificar perfil";
 
     //Vistas
     const INDEXVIEW = "index";
     const LOGINVIEW = "login";
     const REGISTRARVIEW = "registrar";
     const USUARIOVIEW = "usuario";
+    const MODIFICARPERFILVIEW = "modificar";
 
     //Propiedades Usuario
     const USUARIONOMBRE = "nombre";

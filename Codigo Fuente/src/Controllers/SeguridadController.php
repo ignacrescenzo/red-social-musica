@@ -86,13 +86,13 @@ class SeguridadController extends Controller
 
     function registrarUsuario($json)
     {
-        header("Content-type: application/json");
+        header("Content-type: application/json; charset=UTF-8");
 
         $data = json_decode($json["data"]);
 
         $usuario = new Usuario();
 
-        $usuario->setNombre($data->nombre);
+        $usuario->setNombre(mb_convert_encoding($data->nombre, 'UTF-8', 'UTF-8'));
         $usuario->setApellido($data->apellido);
         $usuario->setUpassword($data->password);
         $usuario->setUsername($data->nickname);
@@ -145,5 +145,11 @@ class SeguridadController extends Controller
         }
 
         echo json_encode(true);
+    }
+
+    function cerrarSesion()
+    {
+        session_destroy();
+        header("Location:" . getBaseAddress());
     }
 }

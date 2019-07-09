@@ -6102,6 +6102,29 @@ CREATE TABLE Usuario(
     constraint FK_Usuario_Localidad FOREIGN KEY (LocalidadId) REFERENCES Localidad (Id)
 );
 
+CREATE TABLE Banda(
+	Id integer NOT NULL UNIQUE auto_increment,
+    Nombre varchar(30) NOT NULL UNIQUE,
+    ProvinciaId integer NOT NULL,
+    PartidoId integer NOT NULL,
+    LocalidadId integer NOT NULL,
+    LiderId integer NOT NULL,
+    GeneroMusical varchar(50) NOT NULL,
+    constraint PK_Banda primary key (Id),
+    constraint FK_Banda_Provincia foreign key (ProvinciaId) references Provincia (Id),
+    constraint FK_Banda_Partido foreign key (PartidoId) references Partido (Id),
+    constraint FK_Banda_Localidad foreign key (LocalidadId) references Localidad (Id),
+    constraint FK_Banda_Usuario foreign key (LiderId) references Usuario (Id)
+);
+
+CREATE TABLE RedSocial (
+	Id integer NOT NULL UNIQUE auto_increment,
+    Link varchar(50) NOT NULL UNIQUE,
+    BandaId integer NOT NULL,
+    constraint PK_RedSocial primary key (Id),
+    constraint FK_RedSocial_Banda foreign key (BandaId) references Banda (Id)
+);
+
 INSERT INTO Rol (Nombre) VALUES ("Administrador"),
                                 ("Usuario");
                                 
@@ -6110,4 +6133,5 @@ INSERT INTO Genero (Nombre) VALUES ("Masculino"),
                                 ("Otro");
                                 
 INSERT INTO Usuario (Nombre, Apellido, FechaNacimiento, Username, UPassword, Email, RolId, GeneroId, ProvinciaId, PartidoId, LocalidadId)
-VALUES ("super", "user", "1810-05-25", "superuser", "master", "superuser@master.com", 1, 3, 1, 3, 764);
+VALUES ("super", "user", "1810-05-25", "superuser", "master", "superuser@master.com", 1, 3, 1, 3, 764),
+		("Tomás", "Pais", "1995-11-15", "tpais", "tomas1234", "tomas.j.pais@gmail.com", 2, 1, 1, 3, 764);
