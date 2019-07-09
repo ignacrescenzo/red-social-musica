@@ -76,12 +76,10 @@ function validarNombreBanda() {
     var nombreBanda = inputNombreBanda.val();
     var validacion = false;
 
-    if(nombreBanda === null || nombreBanda.length === 0 || nombreBanda === "") {
+    if (nombreBanda === null || nombreBanda.length === 0 || nombreBanda === "") {
         $('#errorNombreBanda').addClass('d-flex').removeClass('d-none').find('span').text('Ingrese un nombre');
     } else if (nombreBanda.length < 3 || nombreBanda.length > 30) {
         $('#errorNombreBanda').addClass('d-flex').removeClass('d-none').find('span').text('Entre 3 y 30 caracteres');
-    } else if(!regexLetrasYEspacio.test(nombreBanda)) {
-        $('#errorNombreBanda').addClass('d-flex').removeClass('d-none').find('span').text('Nombre inválido');
     } else {
         validacion = true;
     }
@@ -93,7 +91,7 @@ function validarGeneroMusical() {
     var generoMusical = inputGeneroMusical.val();
     var validacion = false;
 
-    if(generoMusical === null || generoMusical.length === 0 || generoMusical === "") {
+    if (generoMusical === null || generoMusical.length === 0 || generoMusical === "") {
         $('#errorGeneroMusical').addClass('d-flex').removeClass('d-none').find('span').text('Ingrese un género musical');
     } else {
         validacion = true;
@@ -120,7 +118,7 @@ btnGuardar.click(function (e) {
 
     limpiarErrores();
 
-    if(validarBanda()) {
+    if (validarBanda()) {
         var obj = {};
         formCrearBanda.submit();
     }

@@ -220,4 +220,27 @@ class Banda extends Model {
     {
         return $this->pageRows(0, 1, "Nombre LIKE '" . $this->getNombre() . "'");
     }
+
+    public function traerMisBandas($pk)
+    {
+        $bandas = array();
+
+        $rows = $this->pageRows(0, PHP_INT_MAX, "LiderId = $pk");
+
+        foreach($rows as $row)
+        {
+            $banda = new Banda();
+            $banda->db->disconnect();
+            $banda->setId($row["Id"]);
+            $banda->setNombre($row["Nombre"]);
+            $banda->setProvinciaId($row["ProvinciaId"]);
+            $banda->setPartidoId($row["PartidoId"]);
+            $banda->setLocalidadId($row["PartidoId"]);
+            $banda->setLiderId($row["LiderId"]);
+            $banda->setGenero($row["GeneroMusical"]);
+            $bandas[] = $banda;
+        }
+
+        return $bandas;
+    }
 }
